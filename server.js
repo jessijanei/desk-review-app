@@ -6,6 +6,8 @@ const db = require("./models");
 const app = express();
 const es6Rendered = require("express-es6-template-engine");
 
+
+//FRAMEWORK SET UP//
 app.engine("html", es6Rendered);
 app.set("views", "views");
 app.set("view engine", "html");
@@ -16,11 +18,11 @@ app.all("*", (req, res, next) => {
     next();
 });
 
+//READS JSON BODY OF REQUEST//
 app.use(express.json());
 app.use(express.static("public"));
 
 //GET REVIEWS AND DISPLAY DATA/
-
 app.get("/", (req, res) => {
     db.user.findAll().then((results) => {
       res.render("index", { locals: { results: results} });
@@ -38,7 +40,6 @@ app.get("/reviews/:deskid", (req, res) => {
 
 
 //POST A REVIEW//
-
 app.post("/reviews", (req, res) => {
     const { username, desk, review } = req.body;
 
