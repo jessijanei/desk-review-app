@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+}
+
+.submitButton {
+    margin-bottom: 5%;
+}
+
+.floorplan {
+    margin-bottom: 5%;
+    width:auto
+}
+
+.reviewCard {
+    margin-bottom: 10%;
+}
